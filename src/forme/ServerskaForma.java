@@ -5,13 +5,14 @@
 package forme;
 
 import kontroler.Controller;
+import server.PokretanjeServera;
 
 /**
  *
  * @author Viktorija
  */
 public class ServerskaForma extends javax.swing.JFrame {
-
+    PokretanjeServera serverNit;
     /**
      * Creates new form ServerskaForma
      */
@@ -32,6 +33,10 @@ public class ServerskaForma extends javax.swing.JFrame {
         jButtonZaustaviServer = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabelStatus = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +57,28 @@ public class ServerskaForma extends javax.swing.JFrame {
         jLabel1.setText("Status:");
 
         jLabelStatus.setText("Status je");
+
+        jMenu1.setText("Konfiguracija");
+
+        jMenuItem1.setText("Baza");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Port");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,7 +108,7 @@ public class ServerskaForma extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonPokreniServer)
                     .addComponent(jButtonZaustaviServer))
-                .addContainerGap(502, Short.MAX_VALUE))
+                .addContainerGap(465, Short.MAX_VALUE))
         );
 
         pack();
@@ -100,6 +127,16 @@ public class ServerskaForma extends javax.swing.JFrame {
         jButtonPokreniServer.setEnabled(false);
         jButtonZaustaviServer.setEnabled(true);
     }//GEN-LAST:event_jButtonPokreniServerActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        FormaBaza fb = new FormaBaza();
+        fb.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        FormaPort fp = new FormaPort();
+        fp.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,5 +178,9 @@ public class ServerskaForma extends javax.swing.JFrame {
     private javax.swing.JButton jButtonZaustaviServer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelStatus;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }

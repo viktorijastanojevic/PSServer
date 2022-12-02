@@ -4,6 +4,9 @@
  */
 package kontroler;
 
+import java.net.Socket;
+import model.Zaposleni;
+import operacija.login.PrijaviZaposlenogSO;
 import server.PokretanjeServera;
 
 /**
@@ -47,5 +50,15 @@ public class Controller {
 
     public void setPs(PokretanjeServera ps) {
         this.ps=ps;
+    }
+
+    public Zaposleni login(String username, String password, Socket s) throws Exception {
+    PrijaviZaposlenogSO operacija = new PrijaviZaposlenogSO();
+        Zaposleni zaposleni = new Zaposleni("","",username, password, false);
+
+        operacija.izvrsi(zaposleni, null);
+
+        zaposleni = operacija.getZaposleni();
+        return zaposleni;
     }
 }

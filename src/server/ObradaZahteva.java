@@ -12,6 +12,9 @@ import komunikacija.Odgovor;
 import komunikacija.Posiljalac;
 import komunikacija.Primalac;
 import komunikacija.Zahtev;
+import komunikacija.util.Operacije;
+import kontroler.Controller;
+import model.Zaposleni;
 
 /**
  *
@@ -40,7 +43,13 @@ public class ObradaZahteva extends Thread{
                     Zahtev zahtev = (Zahtev) primalac.primi();
                     try {
                         switch (zahtev.getOperacija()) {
-
+                            case LOGIN:
+                                Zaposleni z = (Zaposleni) zahtev.getPodatak();
+                                z = Controller.getInstance().login(z.getUsername(), z.getPassword(), s);
+                                odgovor.setPodatak(z);
+                                odgovor.setOperacija(Operacije.LOGIN);
+                                odgovor.setGreska(null);
+                            break;
                         }
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
