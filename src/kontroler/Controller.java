@@ -5,7 +5,10 @@
 package kontroler;
 
 import java.net.Socket;
+import java.util.List;
+import model.Kandidat;
 import model.Zaposleni;
+import operacija.kandidat.UcitajKandidateSO;
 import operacija.login.PrijaviZaposlenogSO;
 import server.PokretanjeServera;
 
@@ -61,4 +64,9 @@ public class Controller {
         zaposleni = operacija.getZaposleni();
         return zaposleni;
     }
+
+    public List<Kandidat> ucitajMusterije() throws Exception {
+        UcitajKandidateSO operacija = new UcitajKandidateSO();
+            operacija.izvrsi(null, null);
+            return operacija.getMusterije();    }
 }

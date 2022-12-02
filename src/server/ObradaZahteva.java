@@ -6,6 +6,7 @@ package server;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import komunikacija.Odgovor;
@@ -14,6 +15,7 @@ import komunikacija.Primalac;
 import komunikacija.Zahtev;
 import komunikacija.util.Operacije;
 import kontroler.Controller;
+import model.Kandidat;
 import model.Zaposleni;
 
 /**
@@ -50,6 +52,12 @@ public class ObradaZahteva extends Thread{
                                 odgovor.setOperacija(Operacije.LOGIN);
                                 odgovor.setGreska(null);
                             break;
+                            case UCITAJ_KANDIDATE:
+                                List<Kandidat> musterije = Controller.getInstance().ucitajMusterije();
+                                odgovor.setPodatak(musterije);
+                                odgovor.setOperacija(Operacije.UCITAJ_KANDIDATE);
+                                odgovor.setGreska(null);
+                                break;
                         }
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
