@@ -9,6 +9,7 @@ import java.util.List;
 import model.Kandidat;
 import model.Zaposleni;
 import operacija.kandidat.KreirajKandidataSO;
+import operacija.kandidat.ObrisiKandidataSO;
 import operacija.kandidat.UcitajKandidateSO;
 import operacija.login.PrijaviZaposlenogSO;
 import server.PokretanjeServera;
@@ -75,5 +76,10 @@ public class Controller {
         KreirajKandidataSO operacija= new KreirajKandidataSO();
         operacija.izvrsi(kandidat,null);
         
+    }
+
+    public void obrisi(Kandidat kandidat) throws Exception {
+        ObrisiKandidataSO operacija=new ObrisiKandidataSO();
+        operacija.izvrsi(kandidat, null);
     }
 }

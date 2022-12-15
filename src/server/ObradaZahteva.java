@@ -64,6 +64,12 @@ public class ObradaZahteva extends Thread{
                                 odgovor.setGreska(null);
                                 odgovor.setPodatak(null);
                             break;
+                            case OBRISI_KANDIDATA:
+                                Controller.getInstance().obrisi((Kandidat) zahtev.getPodatak());
+                                odgovor.setOperacija(Operacije.OBRISI_KANDIDATA);
+                                odgovor.setGreska(null);
+                                odgovor.setPodatak(null);
+                            break;
                         }
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
