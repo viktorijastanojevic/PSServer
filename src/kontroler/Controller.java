@@ -8,6 +8,7 @@ import java.net.Socket;
 import java.util.List;
 import model.Kandidat;
 import model.Zaposleni;
+import operacija.kandidat.KreirajKandidataSO;
 import operacija.kandidat.UcitajKandidateSO;
 import operacija.login.PrijaviZaposlenogSO;
 import server.PokretanjeServera;
@@ -69,4 +70,10 @@ public class Controller {
         UcitajKandidateSO operacija = new UcitajKandidateSO();
             operacija.izvrsi(null, null);
             return operacija.getMusterije();    }
+
+    public void kreiraj(Kandidat kandidat) throws Exception {
+        KreirajKandidataSO operacija= new KreirajKandidataSO();
+        operacija.izvrsi(kandidat,null);
+        
+    }
 }
